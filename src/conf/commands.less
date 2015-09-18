@@ -1,0 +1,120 @@
+.lm-commands {
+  position: relative;
+  text-align: center;
+}
+
+.lm-commands__title {
+  position: relative;
+  height: @doubleGutter;
+  line-height: @doubleGutter;
+
+  &:after {
+    display: inline-block;
+    content: "";
+    top: 50%;
+    left: 100%;
+    width: @doubleGutter;
+    height: @doubleGutter;
+    margin-top: -@gutter;
+    margin-left: @gutter;
+    border-radius: @gutter;
+    vertical-align: bottom;
+    transition: background-color 250ms linear;
+  }
+
+  &.focus {
+    &:after {
+      background: #27ae60;
+    }
+  }
+
+  &.blur {
+    &:after {
+      background: #e74c3c;
+    }
+  }
+}
+
+.lm-commands__input {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: -100%;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  outline: none;
+}
+
+.arrowActiveButton() {
+  color: #2980b9;
+  background: white;
+}
+
+.lm-commands__arrows {
+  display: inline-block;
+  width: @arrowSize * 3;
+  height: @arrowSize * 2;
+  margin: 1em 0;
+
+  &.up {
+    .lm-commands__button.up {
+      .arrowActiveButton();
+    }
+  }
+
+  &.down {
+    .lm-commands__button.down {
+      .arrowActiveButton();
+    }
+  }
+
+  &.left {
+    .lm-commands__button.left {
+      .arrowActiveButton();
+    }
+  }
+
+  &.right {
+    .lm-commands__button.right {
+      .arrowActiveButton();
+    }
+  }
+}
+
+.lm-commands__arrow {
+  float: left;
+  width: @arrowSize;
+  height: @arrowSize;
+  padding: 2px;
+
+  &.up {
+    margin-left: @arrowSize;
+    margin-right: @arrowSize;
+  }
+}
+
+.lm-commands__button {
+  @size: @arrowSize - 4;
+  display: block;
+  width: @size;
+  height: @size;
+  border: 1px solid black;
+  border-radius: 3px;
+  outline: none;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  line-height: @size;
+  font-size: 40px;
+  background: #ecf0f1;
+  transition: all 250ms linear;
+
+  &:hover, &:active {
+    .arrowActiveButton();
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}

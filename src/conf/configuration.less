@@ -1,0 +1,48 @@
+@import "./commands";
+
+.lm-conf {
+  float: left;
+  width: 40%;
+}
+
+.lm-conf__lines {
+  display: inline-block;
+  padding-left: @doubleGutter;
+  vertical-align: bottom;
+}
+
+.lm-conf__line {
+  padding-bottom: 0.5em;
+
+  &.update {
+    text-align: right;
+  }
+}
+
+.lm-conf__label, .lm-conf__input {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.lm-conf__label {
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lm-conf__input {
+}
+
+.lm-conf__update {
+  padding: 0.5em;
+  margin-top: 1em;
+}
+
+.lm-conf__reset {
+  display: inline-block;
+  padding: 0.5em;
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  vertical-align: bottom;
+}
