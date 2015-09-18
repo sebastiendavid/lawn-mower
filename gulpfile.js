@@ -15,11 +15,11 @@ gulp.task('browserify', () => {
   const gulpif = require('gulp-if');
   const source = require('vinyl-source-stream');
   const uglify = require('gulp-uglify');
-  return browserify({ standalone: 'Tondeuse', debug: !isProd })
+  return browserify({ standalone: 'LawnMower', debug: !isProd })
     .require('./src/index.js', { entry: true })
     .bundle()
     .on('error', onError)
-    .pipe(source(`tondeuse${ isProd ? '.min' : '' }.js`))
+    .pipe(source(`lawnmower${ isProd ? '.min' : '' }.js`))
     .pipe(buffer())
     .pipe(gulpif(isProd, uglify()))
     .pipe(gulp.dest('dist/js'));
@@ -36,7 +36,7 @@ gulp.task('less', () => {
     .on('error', onError)
     .pipe(autoPrefixer({ browsers: ['last 2 versions'], cascade: false }))
     .pipe(gulpif(isProd, minifyCSS()))
-    .pipe(rename(`tondeuse${ isProd ? '.min' : '' }.css`))
+    .pipe(rename(`lawnmower${ isProd ? '.min' : '' }.css`))
     .pipe(gulp.dest('dist/css'));
 });
 

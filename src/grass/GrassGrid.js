@@ -25,6 +25,20 @@ export default React.createClass({
     this._resetSub.unsubscribe();
   },
 
+  _onUpdate(opt = { row: DEFAULTS.SIZE, column: DEFAULTS.SIZE }) {
+    console.info(`grid update: ${ opt.row } row, ${ opt.column } column`);
+    this.setState({
+      row: opt.row,
+      column: opt.column,
+      blocks: opt.row * opt.column,
+      size: { width: percent(100 / opt.column), height: percent(100 / opt.row) }
+    });
+  },
+
+  _onReset() {
+    this.forceUpdate();
+  },
+
   render() {
     const time = new Date().getTime();
     let x = -1;
@@ -45,19 +59,5 @@ export default React.createClass({
         </ul>
       </section>
     );
-  },
-
-  _onUpdate(opt = { row: DEFAULTS.SIZE, column: DEFAULTS.SIZE }) {
-    console.info(`grid update: ${ opt.row } row, ${ opt.column } column`);
-    this.setState({
-      row: opt.row,
-      column: opt.column,
-      blocks: opt.row * opt.column,
-      size: { width: percent(100 / opt.column), height: percent(100 / opt.row) }
-    });
-  },
-
-  _onReset() {
-    this.forceUpdate();
   }
 });

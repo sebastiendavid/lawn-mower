@@ -2,6 +2,10 @@ import PositionActions from '../actions/PositionActions';
 import React from 'react';
 
 export default React.createClass({
+  getInitialState() {
+    return { focusClass: 'blur', arrowStatus: '' };
+  },
+
   componentDidMount() {
     this._docClickCB = () => this._onDocClick();
     document.addEventListener('click', this._docClickCB);
@@ -10,34 +14,6 @@ export default React.createClass({
 
   componentWillUnmount() {
     document.removeEventListener('click', this._docClickCB);
-  },
-
-  getInitialState() {
-    return { focusClass: 'blur', arrowStatus: '' };
-  },
-
-  render() {
-    return (
-      <section className="lm-commands">
-        <h2 className={ `lm-commands__title ${ this.state.focusClass }` }>Commands</h2>
-        <input ref="input" type="text" className="lm-commands__input" maxLength="1" onKeyUp={ this._onKeyUp }
-          onKeyDown={ this._onKeyDown } onFocus={ this._onFocus } onBlur={ this._onBlur }/>
-        <ul className={ `lm-commands__arrows ${ this.state.arrowStatus }` }>
-          <li className="lm-commands__arrow up">
-            <a className="lm-commands__button up" href="#up" onClick={ this._onUpClick }>&#8593;</a>
-          </li>
-          <li className="lm-commands__arrow left">
-            <a className="lm-commands__button left" href="#left" onClick={ this._onLeftClick }>&#8592;</a>
-          </li>
-          <li className="lm-commands__arrow down">
-            <a className="lm-commands__button down" href="#down" onClick={ this._onDownClick }>&#8595;</a>
-          </li>
-          <li className="lm-commands__arrow right">
-            <a className="lm-commands__button right" href="#right" onClick={ this._onRightClick }>&#8594;</a>
-          </li>
-        </ul>
-      </section>
-    );
   },
 
   _focus() {
@@ -132,5 +108,29 @@ export default React.createClass({
   _onRightClick(event) {
     event.preventDefault();
     this._go('right');
+  },
+
+  render() {
+    return (
+      <section className="lm-commands">
+        <h2 className={ `lm-commands__title ${ this.state.focusClass }` }>Commands</h2>
+        <input ref="input" type="text" className="lm-commands__input" maxLength="1" onKeyUp={ this._onKeyUp }
+          onKeyDown={ this._onKeyDown } onFocus={ this._onFocus } onBlur={ this._onBlur }/>
+        <ul className={ `lm-commands__arrows ${ this.state.arrowStatus }` }>
+          <li className="lm-commands__arrow up">
+            <a className="lm-commands__button up" href="#up" onClick={ this._onUpClick }>&#8593;</a>
+          </li>
+          <li className="lm-commands__arrow left">
+            <a className="lm-commands__button left" href="#left" onClick={ this._onLeftClick }>&#8592;</a>
+          </li>
+          <li className="lm-commands__arrow down">
+            <a className="lm-commands__button down" href="#down" onClick={ this._onDownClick }>&#8595;</a>
+          </li>
+          <li className="lm-commands__arrow right">
+            <a className="lm-commands__button right" href="#right" onClick={ this._onRightClick }>&#8594;</a>
+          </li>
+        </ul>
+      </section>
+    );
   }
 });

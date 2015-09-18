@@ -1,25 +1,25 @@
 {
-    "linters": {
-        "coffeelint": {
-            "@disable": true
-        },
-        "eslint": {
-            "@disable": false,
-            "args": [],
-            "excludes": [
-                "*/node_modules/*",
-                "*/bower_components/*",
-                "*/target/*"
-            ]
-        },
-        "jscs": {
-            "@disable": true
-        },
-        "jshint": {
-            "@disable": true
-        },
-        "jsxhint": {
-            "@disable": true
-        }
+  "linters": {
+    "coffeelint": {
+      "@disable": true
+    },
+    "eslint": {
+      "@disable": false,
+      "args": [],
+      "excludes": [
+        "*/node_modules/*",
+        "*/bower_components/*",
+        "*/target/*"
+      ]
+    },
+    "jscs": {
+      "@disable": true
+    },
+    "jshint": {
+      "@disable": true
+    },
+    "jsxhint": {
+      "@disable": true
     }
+  }
 }

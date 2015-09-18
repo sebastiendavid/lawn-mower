@@ -9,16 +9,16 @@ export default React.createClass({
     position: React.PropTypes.object
   },
 
-  getInitialState() {
-    return { mown: false };
-  },
-
   getDefaultProps() {
     return {
       height: DEFAULTS.HEIGHT,
       width: DEFAULTS.WIDTH,
       position: {}
     };
+  },
+
+  getInitialState() {
+    return { mown: false };
   },
 
   componentDidMount() {
@@ -40,6 +40,12 @@ export default React.createClass({
     this._upBlockSub.unsubscribe();
   },
 
+  _onUpdate() {
+    if (!this.state.mown) {
+      this.setState({ mown: true });
+    }
+  },
+
   render() {
     const mown = this.state.mown || (this.props.position.x === 0 && this.props.position.y === 0);
     return (
@@ -48,11 +54,5 @@ export default React.createClass({
         <div className={ `lm-grassGrid__grass ${ mown ? 'mown' : '' }` }></div>
       </li>
     );
-  },
-
-  _onUpdate() {
-    if (!this.state.mown) {
-      this.setState({ mown: true });
-    }
   }
 });

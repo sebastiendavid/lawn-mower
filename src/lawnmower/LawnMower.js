@@ -29,14 +29,6 @@ export default React.createClass({
     this._goDownSub.unsubscribe();
   },
 
-  render() {
-    return (
-      <li className="lm-lawnMower" style={ this.state.style }>
-        <img src="assets/lawn-mower.svg" className="lm-lawnMower__img" />
-      </li>
-    );
-  },
-
   _onReset(opt = { row: DEFAULTS.SIZE, column: DEFAULTS.SIZE }) {
     console.info(`lawn mower reset: ${ opt.row } row, ${ opt.column } column`);
     this.setState({
@@ -56,5 +48,13 @@ export default React.createClass({
         transform: `translate(${ translateX }, ${ translateY })`
       })
     });
+  },
+
+  render() {
+    return (
+      <li className="lm-lawnMower" style={ this.state.style }>
+        <img src="assets/lawn-mower.svg" className="lm-lawnMower__img" />
+      </li>
+    );
   }
 });

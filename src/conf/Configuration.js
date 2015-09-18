@@ -5,6 +5,21 @@ import PositionActions from '../actions/PositionActions';
 import React from 'react';
 
 export default React.createClass({
+  _getGridInputs() {
+    return {
+      row: toNumber(this.refs.row.getDOMNode().value, DEFAULTS.SIZE),
+      column: toNumber(this.refs.column.getDOMNode().value, DEFAULTS.SIZE)
+    };
+  },
+
+  _onUpdate() {
+    PositionActions.updateGrid(this._getGridInputs());
+  },
+
+  _onReset() {
+    PositionActions.reset();
+  },
+
   render() {
     return (
       <section className="lm-conf">
@@ -28,20 +43,5 @@ export default React.createClass({
         <Commands />
       </section>
     );
-  },
-
-  _getGridInputs() {
-    return {
-      row: toNumber(this.refs.row.getDOMNode().value, DEFAULTS.SIZE),
-      column: toNumber(this.refs.column.getDOMNode().value, DEFAULTS.SIZE)
-    };
-  },
-
-  _onUpdate() {
-    PositionActions.updateGrid(this._getGridInputs());
-  },
-
-  _onReset() {
-    PositionActions.reset();
   }
 });
