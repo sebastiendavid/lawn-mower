@@ -14,7 +14,7 @@
     "watch": "./node_modules/.bin/babel-node ./node_modules/.bin/gulp watch"
   },
   "repository": "git@github.com:sebastiendavid/lawn-mower.git",
-  "author": "Sébastien David <sebastiendavid83@icloud.com>",
+  "author": "Sébastien David <sebastien-david@outlook.com>",
   "license": "ISC",
   "homepage": "https://github.com/sebastiendavid/lawn-mower",
   "devDependencies": {
